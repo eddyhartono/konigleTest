@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class='col-12 col-md-10 mx-auto p-3'>
+    <h2 class='fw-light text-center text-md-start'>Welcome to Unity Shopping Platform</h2>
+    <hr/>
+    <div class='rounded bg-light shadow p-3 text-center text-md-start'>
+        <h4 class='text-success fw-normal'>
+            <i class="bi bi-door-open"></i> Sign-up with your email now and claim your $5 off on your first purchase.
+        </h4>
+        <span class='fst-italic fw-light'>Once you submit your email address, please check your email for verification. </span>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/e-widgets.v1.min.js' %}"></script>
+{% endblock %}

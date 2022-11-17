@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class='col-12 col-md-6 mx-md-auto mx-2'>
+    <div class='text-center my-4'>
+        <h1 class='fw-light'><i class="bi bi-chat-left-quote text-warning"></i> Hello Seller, </h1><span class='fs-5 fw-lighter'>Please login to access your Dashboard</span>
+    </div>
+
+    <hr class='style'>
+
+    <div class='d-flex flex-column justify-content-center bg-light p-3 fw-light rounded-3 shadow'>
+        {% if form.errors %}
+        <div class='text-danger fst-italic p-2 text-center'>Your username and password didn't match. Please try again.</div>
+        {% endif %}
+
+        <form method='POST' action="{% url 'seller_login' %}" class="form-floating">
+            {% csrf_token %}
+            <input type="email" name='username' class="form-control" id="Username" placeholder="Login with your email address" required>
+            <label for="Username"><i class="bi bi-envelope"></i> Email Address</label>
+
+            <div class="input-group my-3">
+                <div class="form-floating">
+                    <input type="password" name='password' class="form-control" id="password" placeholder="Password">
+                    <label for="password"><i class="bi bi-key"></i> Password</label>
+                </div>
+                <span class="input-group-text" type='button' id='show'><i class="bi bi-eye-slash" id="togglePassword"></i></span>
+            </div>
+
+            <div class='d-grid col-12 col-md-6 mx-auto'>
+                <button type="submit" class='btn btn-warning my-3'><i class="bi bi-box-arrow-in-right"></i> Login</button>
+                <input type="hidden" name="next" value="{{ next }}">
+            </div>
+        </form>
+        <div class='tiny text-center'><a href='#' class='link'>Forgot Password ?</a></div>
+    </div>
+    <div class='fw-lighter fst-italic small text-center mt-2'>&copy; Unity 2022 -- All Rights Reserved</div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+    const togglePassword = document.querySelector("#togglePassword");
+    const password = document.querySelector("#password");
+
+    togglePassword.addEventListener("click", function () {
+        const type = password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+        
+        this.classList.toggle("bi-eye");
+    });
+
+    
+</script>
+{% endblock %}

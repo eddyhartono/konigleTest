@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class='mx-auto col col-md-8'>
+    <div class='bg-light p-2 text-center'>
+        <div class='small'>
+            <h2 class='fw-light'>Log Out Succesfully !!</h2>
+            <a href="{% url 'seller_login' %}" class='link'><i class="bi bi-box-arrow-in-right"></i> Login again</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
