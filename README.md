@@ -9,26 +9,26 @@ First of all, run these:
 
 # API 
 
-List all the email : 127.0.0.1:8000/api/list
-Add new email : 127.0.0.1:8000/api/add
-Detail of the email : 127.0.0.1:8000/api/detail/<id>
+1. List all the email : 127.0.0.1:8000/api/list
+2. Add new email : 127.0.0.1:8000/api/add
+3. Detail of the email : 127.0.0.1:8000/api/detail/<id>
 
 # Users
 
-For the visitor index page : 127.0.0.1:8000
-For the seller dashboard : 127.0.0.1:8000/dashboard
+- For the visitor index page : 127.0.0.1:8000
+- For the seller dashboard : 127.0.0.1:8000/dashboard
 
 login with this credential for seller:
-email: johndoe@email.com
-password: unity12345678
+- email: johndoe@email.com
+- password: unity12345678
 
 # Admin
 
 Admin site: 127.0.0.1:8000/admin
 
 login with this credential for admin:
-email: admin@email.com
-password: unity12345678
+- email: admin@email.com
+- password: unity12345678
 
 Login is using email address because most people will remember their email address rather than username, so the authentication system is changed to email required.
 
