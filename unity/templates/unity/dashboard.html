@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class='mx-auto col col-md-8'>
+    <div class='bg-light bg-gradient p-4 my-md-3 my-0 d-md-flex justify-content-between'>
+        
+            <div class='small text-center text-md-start'>
+                <h2 class='fw-light'><i class="bi bi-speedometer"></i> Welcome to Unity Dashboard</h2>
+                <span class='text-success'>
+                <i class="bi bi-person-circle"></i> Login as: <span class='fw-bold'>{{request.user.first_name}} {{request.user.last_name}}</span> <span class='fw-light fst-italic'>(last login: {{request.user.last_login|date:'d M Y, H:i'}})</span>
+                </span>
+            </div>
+            <div class='fw-bolder small text-center mt-4 mt-md-0'>
+                <a href="{% url 'seller_logout' %}" class='link'><i class="bi bi-box-arrow-right"></i> Logout</a>
+            </div>
+    </div>
+    <hr/>
+    <div class='d-flex flex-lg-row flex-column justify-content-between px-3'>
+        <div class="col col-lg-4 card shadow-sm bg-info bg-opacity-25">
+            <div class='d-flex justify-content-between card-header'>
+                <h6 class="text-start">TOTAL EMAIL LIST</h6><a href="{% url 'unity:all_list' %}" class='invoice text-dark fs-6'><i class="bi bi-info-circle-fill text-end"></i></a>
+            </div>
+            <div class="card-body">
+            <h1 class="card-title">{% if email_list %}{{email_list}}{% else %} 0 {% endif %}</h1>
+            </div>
+        </div>
+
+        <div class="col col-lg-4 my-2 my-lg-0 card shadow-sm bg-success bg-opacity-50">
+            <div class='d-flex justify-content-between card-header'>
+                <h6 class="text-start">NEW THIS MONTH</h6><a href="{% url 'unity:new_subs_list' %}" class='invoice text-dark fs-6'><i class="bi bi-info-circle-fill text-end"></i></a>
+            </div>
+            <div class="card-body">
+            <h1 class="card-title">{% if total_subs_this_month %}{{total_subs_this_month}}{% else %} 0 {% endif %}</h1>
+            </div>
+        </div>
+
+        <div class="col col-lg-3 card shadow-sm bg-danger text-white bg-opacity-75">
+            <div class='d-flex justify-content-between card-header'>
+                <h6 class="text-start">UNSUBSCRIBED</h6><a href="{% url 'unity:unsubs_list' %}" class='invoice text-white fs-6'><i class="bi bi-info-circle-fill text-end"></i></a>
+            </div>
+            <div class="card-body">
+            <h1 class="card-title">{% if total_unsubs %}{{total_unsubs}}{% else %} 0 {% endif %}</h1>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    {% block detail %}{% endblock %}
+</div>
+
+{% endblock %}
+
