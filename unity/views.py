@@ -22,7 +22,7 @@ class BuyerIndex(TemplateView):
         context["title"] = 'Welcome Buyer'
         return context
 
-class ContextMixin():
+class ContextMixin(object):
     model = emailList
     paginate_by = 25
     
